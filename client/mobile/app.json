@@ -1,0 +1,73 @@
+{
+  "expo": {
+    "name": "Ursine Arcana",
+    "slug": "ursine-arcana",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "ursinearcana",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#111827"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.ursinearcana.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Ursine Arcana uses your location to show you nearby users.",
+        "NSLocationAlwaysUsageDescription": "Ursine Arcana uses your location to show you nearby users even when the app is in the background.",
+        "NSPhotoLibraryUsageDescription": "Ursine Arcana needs access to your photos to let you upload profile pictures.",
+        "NSCameraUsageDescription": "Ursine Arcana needs access to your camera to let you take profile pictures."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#111827"
+      },
+      "package": "com.ursinearcana.app",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Ursine Arcana to use your location to show nearby users."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Ursine Arcana to access your photos for profile pictures.",
+          "cameraPermission": "Allow Ursine Arcana to access your camera for profile pictures."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/notification-icon.png",
+          "color": "#8B5CF6"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

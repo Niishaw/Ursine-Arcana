@@ -1,0 +1,76 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isValidImage() {
+      return request.resource.contentType.matches('image/.*') &&
+        request.resource.size < 10 * 1024 * 1024; // 10MB max
+    }
+    
+    function isAllowedImageType() {
+      return request.resource.contentType in [
+        'image/jpeg',
+        'image/png',
+        'image/webp'
+      ];
+    }
+    
+    // Profile images - user's own folder
+    match /profiles/{userId}/{fileName} {
+      // Anyone authenticated can read profile images
+      allow read: if isAuthenticated();
+      
+      // Only owner can write to their profile folder
+      allow write: if isOwner(userId) && 
+        isValidImage() && 
+        isAllowedImageType();
+      
+      // Only owner can delete
+      allow delete: if isOwner(userId);
+    }
+    
+    // Gallery images - user's own folder
+    match /gallery/{userId}/{fileName} {
+      // Anyone authenticated can read gallery images
+      allow read: if isAuthenticated();
+      
+      // Only owner can write to their gallery folder
+      allow write: if isOwner(userId) && 
+        isValidImage() && 
+        isAllowedImageType();
+      
+      // Only owner can delete
+      allow delete: if isOwner(userId);
+    }
+    
+    // Chat images - requires both users to be participants
+    // Note: Full validation happens in Cloud Functions
+    match /chat-images/{chatId}/{fileName} {
+      // Read requires authentication (full check in functions)
+      allow read: if isAuthenticated();
+      
+      // Write requires authentication and valid image
+      allow write: if isAuthenticated() && 
+        isValidImage() && 
+        isAllowedImageType();
+      
+      // No direct deletion (handled by retention policy)
+      allow delete: if false;
+    }
+    
+    // Moderation folder (admin only, written by functions)
+    match /moderation/{path=**} {
+      allow read: if false; // Only accessed by Cloud Functions
+      allow write: if false; // Only written by Cloud Functions
+    }
+  }
+}

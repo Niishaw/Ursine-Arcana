@@ -1,0 +1,23 @@
+{
+  "name": "@ursine-arcana/shared",
+  "version": "0.1.0",
+  "description": "Shared types, constants, and utilities for Ursine Arcana",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rm -rf dist",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "typescript": "^5.3.0"
+  },
+  "peerDependencies": {
+    "firebase": "^10.7.0"
+  }
+}
