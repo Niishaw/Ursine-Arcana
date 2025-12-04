@@ -1,9 +1,10 @@
 import { initializeApp, getApps, FirebaseApp } from 'firebase/app';
 // @ts-expect-error - getReactNativePersistence exists in RN bundle but not in TS types
-import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
+import { initializeAuth, getReactNativePersistence, getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Platform } from 'react-native';
 
 /**
  * Firebase configuration
@@ -23,9 +24,13 @@ const app: FirebaseApp = getApps().length === 0 ? initializeApp(firebaseConfig) 
 
 // Initialize Auth with AsyncStorage persistence for React Native
 // This is the correct way to initialize Firebase Auth in Expo/React Native
-export const auth = initializeAuth(app, {
-  persistence: getReactNativePersistence(AsyncStorage),
-});
+// On web, fall back to standard getAuth(app) to avoid using getReactNativePersistence
+export const auth =
+  Platform.OS === 'web'
+    ? getAuth(app)
+    : initializeAuth(app, {
+        persistence: getReactNativePersistence(AsyncStorage),
+      });
 
 // Initialize Firestore
 export const db = getFirestore(app);
