@@ -155,9 +155,9 @@ Age verification is now part of the **signup path**, not the initial app launch.
 
 2. **Welcome/Login Screen**
    - [x] Apply Superlist-style centered layout with logo, tagline, and Google button.
-   - [ ] Add Email/Phone tabs and input fields.
-   - [ ] Add primary "Log in" button behavior for Email.
-   - [ ] Decide temporary behavior for Phone login (placeholder vs implementation).
+   - [x] Add Email/Phone tabs and input fields.
+   - [x] Add primary "Log in" button behavior for Email.
+   - [x] Decide temporary behavior for Phone login (placeholder alert for now).
    - [x] Constrain content width on web via `maxWidth` and center horizontally.
 
 3. **Sign Up Path**
@@ -168,8 +168,10 @@ Age verification is now part of the **signup path**, not the initial app launch.
 
 4. **Testing**
    - [ ] Test on Expo web.
-   - [ ] Test on Android emulator.
-   - [ ] Test on physical device via Expo Go.
+   - [x] Test on Android emulator.
+   - [x] Test on physical device via Expo Go.
+
+> **Status (2025-12-04)**: Welcome/Login UI implemented with email & phone tabs, email login wired to auth context, placeholder phone login alert, and Google sign-in. Changes tested on a physical iOS device and Android emulator, and pushed to the repository.
 
 ---
 

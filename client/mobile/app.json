@@ -4,11 +4,11 @@
     "slug": "ursine-arcana",
     "version": "0.1.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/ursus_arcana_logo_main.png",
     "scheme": "ursinearcana",
     "userInterfaceStyle": "dark",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/ursus_arcana_logo_main.png",
       "resizeMode": "contain",
       "backgroundColor": "#111827"
     },
@@ -25,7 +25,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/ursus_arcana_logo_main.png",
         "backgroundColor": "#111827"
       },
       "package": "com.ursinearcana.app",
@@ -45,6 +45,8 @@
     "plugins": [
       "expo-router",
       "expo-secure-store",
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth",
       [
         "expo-location",
         {

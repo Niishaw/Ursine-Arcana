@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>594833798736-hlg3td3qr2tr2iu3lfp66jt2243mns5t.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.594833798736-hlg3td3qr2tr2iu3lfp66jt2243mns5t</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA87WoHZP1w8gcdOZR9Pt1dTsClenkXKgw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>594833798736</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ursinearcana.app</string>
+	<key>PROJECT_ID</key>
+	<string>ursine-arcana</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ursine-arcana.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:594833798736:ios:f1299f1b7fd1be22370355</string>
+</dict>
+</plist>

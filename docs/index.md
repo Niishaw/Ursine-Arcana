@@ -143,9 +143,12 @@ Location: `docs/architecture/`
 
 Location: `docs/mobile/`
 
-| Document        | Status | Description                       |
-| --------------- | ------ | --------------------------------- |
-| _To be created_ | -      | Authentication flow documentation |
+| Document                                                                     | Status             | Description                                 |
+| ---------------------------------------------------------------------------- | ------------------ | ------------------------------------------- |
+| [welcome-login/0001-planning](./mobile/welcome-login/0001-planning.md)       | 🔄 In Progress     | Welcome & login screen UI and flow          |
+| [auth/0001-planning](./mobile/auth/0001-planning.md)                         | 🔄 In Progress     | Authentication, signup, email verification  |
+| [auth/0002-firebase-setup-guide](./mobile/auth/0002-firebase-setup-guide.md) | ⚠️ Action Required | Firebase native config setup guide          |
+| [testing/0001-testing-setup](./mobile/testing/0001-testing-setup.md)         | ✅ Active          | Jest testing infrastructure and conventions |
 
 ### Admin Dashboard Documentation
 
