@@ -47,6 +47,7 @@
     "@ursine-arcana/shared": "*",
     "expo": "~54.0.25",
     "expo-auth-session": "^7.0.9",
+    "expo-dev-client": "~6.0.19",
     "expo-image-picker": "~17.0.8",
     "expo-linear-gradient": "~15.0.7",
     "expo-location": "~19.0.7",

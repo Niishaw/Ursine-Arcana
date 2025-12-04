@@ -12,15 +12,19 @@
       "resizeMode": "contain",
       "backgroundColor": "#111827"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.ursinearcana.app",
+      "googleServicesFile": "./GoogleService-Info.plist",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "Ursine Arcana uses your location to show you nearby users.",
         "NSLocationAlwaysUsageDescription": "Ursine Arcana uses your location to show you nearby users even when the app is in the background.",
         "NSPhotoLibraryUsageDescription": "Ursine Arcana needs access to your photos to let you upload profile pictures.",
-        "NSCameraUsageDescription": "Ursine Arcana needs access to your camera to let you take profile pictures."
+        "NSCameraUsageDescription": "Ursine Arcana needs access to your camera to let you take profile pictures.",
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
@@ -29,12 +33,14 @@
         "backgroundColor": "#111827"
       },
       "package": "com.ursinearcana.app",
+      "googleServicesFile": "./google-services.json",
       "permissions": [
-        "ACCESS_COARSE_LOCATION",
-        "ACCESS_FINE_LOCATION",
-        "CAMERA",
-        "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE"
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.RECORD_AUDIO"
       ]
     },
     "web": {
@@ -63,13 +69,19 @@
       [
         "expo-notifications",
         {
-          "icon": "./assets/images/notification-icon.png",
+          "icon": "./assets/images/ursus_arcana_logo_main.png",
           "color": "#8B5CF6"
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "21ebc4c6-af28-4212-9a0f-c0585bd02342"
+      }
     }
   }
 }

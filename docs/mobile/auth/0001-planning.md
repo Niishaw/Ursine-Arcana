@@ -323,17 +323,17 @@ Existing rules in `server/rules/firestore.rules` are **already appropriate**:
 
 ### Phase 2: Custom Dev Build Setup 🔄
 
-- [ ] Run `npx expo prebuild` to generate native projects
+- [x] Run `npx expo prebuild` to generate native projects
 - [x] Install `@react-native-firebase/app` and `@react-native-firebase/auth`
 - [x] Configure Expo plugins in `app.json`
-- [ ] Download `google-services.json` from Firebase Console (Android)
-- [ ] Download `GoogleService-Info.plist` from Firebase Console (iOS)
-- [ ] Build and test custom dev client
+- [x] Download `google-services.json` from Firebase Console (Android)
+- [x] Download `GoogleService-Info.plist` from Firebase Console (iOS)
+- [x] Configure `googleServicesFile` paths in `app.json`
+- [x] Android custom dev build working ✅
+- [ ] iOS build (blocked - requires Apple Developer $99/yr)
 - [ ] Add Firebase test phone numbers in console
 - [ ] Enable Email/Password auth in Firebase Console
 - [ ] Enable Phone auth in Firebase Console
-
-> **⚠️ ACTION REQUIRED**: See [0002-firebase-setup-guide.md](./0002-firebase-setup-guide.md) for Firebase config file setup.
 
 ### Phase 3: Sign Up Path Routing
 

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "594833798736",
+    "project_id": "ursine-arcana",
+    "storage_bucket": "ursine-arcana.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594833798736:android:f0f2284863fe61a9370355",
+        "android_client_info": {
+          "package_name": "com.ursinearcana.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594833798736-ribduol84ukq4af91cjirp5l71s9uk2l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoXYNtuq07h7PvQzZhPrw5PhiU0L76EeA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594833798736-ribduol84ukq4af91cjirp5l71s9uk2l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "594833798736-hlg3td3qr2tr2iu3lfp66jt2243mns5t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ursinearcana.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
