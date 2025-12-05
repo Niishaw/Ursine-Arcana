@@ -73,17 +73,18 @@ describe('LoginScreen', () => {
     });
 
     it('switches to phone input when Phone tab is pressed', () => {
-      const { getByText, getByPlaceholderText, queryByPlaceholderText } = render(<LoginScreen />);
+      const { getByText, getByPlaceholderText, getAllByPlaceholderText, queryByPlaceholderText } =
+        render(<LoginScreen />);
 
       // Press Phone tab
       fireEvent.press(getByText('Phone'));
 
-      // Should show phone input
+      // Should show phone input and password
       expect(getByPlaceholderText('Phone number')).toBeTruthy();
+      expect(getAllByPlaceholderText('Password').length).toBe(1); // Password field for phone
 
-      // Should not show email/password
+      // Should not show email
       expect(queryByPlaceholderText('Email')).toBeNull();
-      expect(queryByPlaceholderText('Password')).toBeNull();
     });
 
     it('switches back to email fields when Email tab is pressed', () => {
@@ -130,6 +131,18 @@ describe('LoginScreen', () => {
       fireEvent.changeText(phoneInput, '+27821234567');
 
       expect(phoneInput.props.value).toBe('+27821234567');
+    });
+
+    it('allows typing in phone password field', () => {
+      const { getByText, getByPlaceholderText } = render(<LoginScreen />);
+
+      // Switch to Phone tab
+      fireEvent.press(getByText('Phone'));
+
+      const passwordInput = getByPlaceholderText('Password');
+      fireEvent.changeText(passwordInput, 'secretpassword');
+
+      expect(passwordInput.props.value).toBe('secretpassword');
     });
   });
 

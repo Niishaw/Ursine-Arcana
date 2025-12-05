@@ -140,21 +140,56 @@ npx expo install @react-native-firebase/app @react-native-firebase/auth
 }
 ```
 
-**Flow**:
+#### 2.2.1 Phone + Password Registration
 
-1. User enters phone number (with country code picker)
-2. Call `signInWithPhoneNumber(auth, phoneNumber)`
-3. Firebase sends SMS with OTP code
-4. User enters OTP code
-5. Call `confirmation.confirm(code)`
-6. On success, create/update user document
-7. Navigate to onboarding (new user) or home (existing user)
+**Important**: Phone users must also provide a password. This ensures:
+
+- Users can recover their account if they change phone numbers
+- Consistent authentication across email and phone users
+- Password can be used as secondary verification
+
+**Registration Flow**:
+
+1. User enters phone number + password on login screen (phone tab)
+2. Navigate to terms → age-gate → signup flow (same as email)
+3. On signup screen, phone number is pre-filled (read-only)
+4. Call `signInWithPhoneNumber(auth, phoneNumber)` to send OTP
+5. User enters OTP code on verify screen
+6. Call `confirmation.confirm(code)` to verify phone
+7. Link email credential for password: `linkWithCredential(user, EmailAuthProvider.credential(generatedEmail, password))`
+   - Generate a placeholder email: `{uid}@phone.ursinearcana.app`
+8. Create user document with `phone` field set, `email` as null
+9. Navigate to onboarding
+
+**Login Flow** (existing phone user):
+
+1. User enters phone number + password
+2. Send OTP via `signInWithPhoneNumber`
+3. User enters OTP code
+4. Verify with `confirmation.confirm(code)`
+5. Validate password matches stored credential
+6. Navigate to home
+
+**Data Storage**:
+
+```typescript
+// User document for phone registration
+{
+  uid: string;
+  email: null; // No real email
+  phone: '+27821234567'; // Verified phone number
+  authMethod: 'phone'; // Track primary auth method
+  hasPassword: true; // Password is set
+  // ... rest of profile
+}
+```
 
 **Important notes**:
 
 - Requires **custom development build** (not Expo Go) for native phone auth
 - For testing, use Firebase Console's test phone numbers
 - Inform users about SMS charges (legal requirement)
+- Password is required for all users (phone or email)
 
 ### 2.3 Google Sign-In
 
@@ -195,6 +230,8 @@ interface InitialUserDocument {
   uid: string;
   email: string | null; // null if phone-only signup
   phone: string | null; // null if email-only signup
+  authMethod: 'email' | 'phone'; // Primary auth method used
+  hasPassword: boolean; // Always true (required for all users)
   createdAt: Timestamp;
   updatedAt: Timestamp;
 

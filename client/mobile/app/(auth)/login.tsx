@@ -35,6 +35,7 @@ export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [phonePassword, setPhonePassword] = useState('');
 
   const [fontsLoaded] = useFonts({
     'Pacifico-Regular': require('../../assets/fonts/Pacifico-Regular.ttf'),
@@ -80,11 +81,12 @@ export default function LoginScreen() {
         Alert.alert('Login failed', message);
       }
     } else {
-      if (!phoneNumber) {
-        Alert.alert('Missing phone number', 'Please enter your phone number.');
+      if (!phoneNumber || !phonePassword) {
+        Alert.alert('Missing fields', 'Please enter your phone number and password.');
         return;
       }
 
+      // Phone login: verify phone via OTP, then authenticate with password
       Alert.alert('Coming soon', 'Phone number login is not implemented yet.');
     }
   };
@@ -216,6 +218,18 @@ export default function LoginScreen() {
                       placeholder="Phone number"
                       placeholderTextColor="#9CA3AF"
                       keyboardType="phone-pad"
+                      className="border-b border-border-light pb-3 text-text-primary text-base"
+                    />
+                  </View>
+
+                  <View>
+                    <Text className="text-text-secondary text-sm mb-2">Password</Text>
+                    <TextInput
+                      value={phonePassword}
+                      onChangeText={setPhonePassword}
+                      placeholder="Password"
+                      placeholderTextColor="#9CA3AF"
+                      secureTextEntry
                       className="border-b border-border-light pb-3 text-text-primary text-base"
                     />
                   </View>
