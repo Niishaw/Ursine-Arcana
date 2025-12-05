@@ -1,6 +1,6 @@
 # Ursine Arcana - Documentation Index
 
-> **Last Updated**: 2025-12-04  
+> **Last Updated**: 2025-12-05  
 > **Project Status**: Phase 2 - Authentication In Progress 🔄  
 > **Current Focus**: Signup Flow Implementation
 
@@ -74,10 +74,12 @@ ursine-arcana/
 
 **Completed:**
 
-- [x] Jest testing infrastructure (14 tests passing)
+- [x] Jest testing infrastructure (15 tests passing)
 - [x] Install @react-native-firebase/app and @react-native-firebase/auth
 - [x] Firebase config files added (google-services.json, GoogleService-Info.plist)
 - [x] Android custom dev build working ✅
+- [x] Login screen: phone tab now requires password (phone+password registration)
+- [x] Auth planning doc updated with phone+password flow
 - [ ] iOS build (requires Apple Developer account - $99/year)
 
 **Next:**

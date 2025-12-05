@@ -1,8 +1,46 @@
 # Authentication & Signup Flow - Planning
 
 > **Created**: 2025-12-04  
+> **Updated**: 2025-12-05  
 > **Status**: In Progress  
 > **Priority**: High (Phase 2)
+
+---
+
+## 🚀 Resume Here (2025-12-05)
+
+### Session Summary
+
+- ✅ Jest testing infrastructure complete (15 tests passing)
+- ✅ Android custom dev build working
+- ✅ Login screen updated: phone tab now requires password
+- ✅ Phone+password registration flow documented (section 2.2.1)
+- ⏸️ iOS build blocked (requires Apple Developer $99/yr)
+
+### Next Session Tasks
+
+1. **Enable Firebase Auth in Console**
+   - Email/Password provider
+   - Phone provider + test phone numbers
+
+2. **Create Signup Flow Screens** (Phase 3 in implementation plan below)
+   - `(auth)/terms.tsx` - Terms & Conditions
+   - `(auth)/age-gate.tsx` - Update to Grindr-style DD/MM/YYYY
+   - `(auth)/signup.tsx` - Create account form
+   - `(auth)/verify-email.tsx` - 6-digit code input
+
+3. **Wire Navigation**
+   - Login "Sign Up" → terms → age-gate → signup → verify-email → onboarding
+
+### Commands to Start
+
+```bash
+# Start Android dev build
+cd client/mobile && npx expo run:android
+
+# Run tests
+cd client/mobile && npm test
+```
 
 ---
 
